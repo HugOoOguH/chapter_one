@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Blog
+{% endblock title %}
+
+{% block content %}
+	<h1 class="text-center"><strong>Blog Tecnológico</strong></h1>
+	<br>
+	<hr>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				{% for post in posts %}
+					<h2> <strong>
+						<a href="{{ post.get_absolute_url }}"><div class="text-uppercase">{{ post.title }}</div></a>
+					</strong> </h2>
+					<br>
+					<p>
+						<small><cite> Publicado {{ post.publish }} por {{ post.author }} </cite></small>
+					</p>
+					<p class="lead">
+						<big>
+							<div class="text-justifyy">
+								{{ post.body|truncatewords:20|linebreaks }}
+							</div>
+						</big>
+					</p>
+					<br>
+					<hr>
+				{% endfor %}
+			</div>
+			<div class="col-md-4">
+				<p class="bg-primary text-center">
+					Mi Blog
+					<blockquote>
+						Este blog pertenece a:
+					</blockquote>
+						<cite>Hugo Enrique Santamaria Cruz</cite>
+				</p>
+			</div>
+		</div>
+	</div>
+	{% include "blog/pagination.html" with page=posts %}
+{% endblock content %}

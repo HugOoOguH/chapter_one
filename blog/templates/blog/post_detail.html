@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	{{ post.title }}
+{% endblock title %}
+
+{% block content %}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-9">
+				<h1 class="text-center">{{ post.title }}</h1>
+				<blockquote>
+					Publicado {{ post.publish }}:
+					<br>
+					<small><cite>por {{ post.author }}</cite></small>
+				</blockquote>
+				<p class="text-justifyy">
+					<div class="text-justifyy"><big>{{ post.body|linebreaks }}</big></div>	
+				</p>
+			</div>
+
+			<div class="col-md-3">
+				<p class="bg-primary text-center">
+					Mi Blog
+					<blockquote>
+						Este blog pertenece a:
+					</blockquote>
+						<cite>Hugo Enrique Santamaria Cruz</cite>
+				</p>
+			</div>
+		</div>
+	</div>
+{% endblock content %}
