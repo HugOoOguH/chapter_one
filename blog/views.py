@@ -4,8 +4,7 @@ from .models import Post
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
-# #Sea gregaron nuevos cambios
-# 
+
 
 class PostList(View):
 	def get(self, request):
